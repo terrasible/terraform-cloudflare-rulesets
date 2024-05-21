@@ -1,19 +1,19 @@
-// To get the zone id from the zone name
+# To get the zone id from the zone name
 data "cloudflare_zone" "zone_data" {
   count = var.zone_name != null ? 1 : 0
 
   name = var.zone_name
 }
 
-// To get the account id from the account name. Account-level WAF configuration requires an Enterprise plan with a paid add-on.
+# To get the account id from the account name. Account-level WAF configuration requires an Enterprise plan with a paid add-on.
 data "cloudflare_accounts" "account_data" {
   count = var.account_name != null ? 1 : 0
 
   name = var.account_name
 }
 
-// Import the existing ruleset deployed at the zone or account level.
-// New Creation of ruleset will fail if any other ruleset is deployed to the same phase.
+# Import the existing ruleset deployed at the zone or account level.
+# New Creation of ruleset will fail if any other ruleset is deployed to the same phase.
 
 resource "cloudflare_ruleset" "this" {
   name        = var.ruleset_name
@@ -34,7 +34,7 @@ resource "cloudflare_ruleset" "this" {
       enabled     = lookup(rules.value, "enabled", null)
       ref         = lookup(rules.value, "ref", null)
 
-      // List of parameters that configure the behavior of the ruleset rule action.
+      # List of parameters that configure the behavior of the ruleset rule action.
       dynamic "action_parameters" {
         for_each = rules.value.action_parameters != null ? [rules.value.action_parameters] : []
 
@@ -74,7 +74,7 @@ resource "cloudflare_ruleset" "this" {
           sxg                        = lookup(action_parameters.value, "sxg", null)
           version                    = lookup(action_parameters.value, "version", null)
 
-          // Compression algorithms to use in order of preference.
+          # Compression algorithms to use in order of preference.
           dynamic "algorithms" {
             for_each = action_parameters.value.algorithms != null ? [action_parameters.value.algorithms] : []
 
@@ -83,7 +83,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // Indicate which file extensions to minify automatically.
+          # Indicate which file extensions to minify automatically.
           dynamic "autominify" {
             for_each = action_parameters.value.autominify != null ? [action_parameters.value.autominify] : []
 
@@ -94,7 +94,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of browser TTL parameters to apply to the request.
+          # List of browser TTL parameters to apply to the request.
           dynamic "browser_ttl" {
             for_each = action_parameters.value.browser_ttl != null ? [action_parameters.value.browser_ttl] : []
 
@@ -104,7 +104,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of cache key parameters to apply to the request.
+          # List of cache key parameters to apply to the request.
           dynamic "cache_key" {
             for_each = action_parameters.value.cache_key != null ? [action_parameters.value.cache_key] : []
 
@@ -168,7 +168,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of edge TTL parameters to apply to the request.
+          # List of edge TTL parameters to apply to the request.
           dynamic "edge_ttl" {
             for_each = action_parameters.value.edge_ttl != null ? [action_parameters.value.edge_ttl] : []
 
@@ -196,7 +196,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // Use a list to lookup information for the action.
+          # Use a list to lookup information for the action.
           dynamic "from_list" {
             for_each = action_parameters.value.from_list != null ? [action_parameters.value.from_list] : []
 
@@ -207,7 +207,7 @@ resource "cloudflare_ruleset" "this" {
 
           }
 
-          // Use a value to lookup information for the action
+          # Use a value to lookup information for the action
           dynamic "from_value" {
             for_each = action_parameters.value.from_value != null ? [action_parameters.value.from_value] : []
 
@@ -226,7 +226,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of HTTP header modifications to perform in the ruleset rule. Headers are order dependent and must be provided sorted alphabetically ascending based on the name value
+          # List of HTTP header modifications to perform in the ruleset rule. Headers are order dependent and must be provided sorted alphabetically ascending based on the name value
           dynamic "headers" {
             for_each = action_parameters.value.headers != null ? [action_parameters.value.headers] : []
 
@@ -238,7 +238,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of properties to configure WAF payload logging.
+          # List of properties to configure WAF payload logging.
           dynamic "matched_data" {
             for_each = action_parameters.value.matched_data != null ? [action_parameters.value.matched_data] : []
 
@@ -247,7 +247,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of properties to change request origin.
+          # List of properties to change request origin.
           dynamic "origin" {
             for_each = action_parameters.value.origin != null ? [action_parameters.value.origin] : []
 
@@ -257,7 +257,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of override configurations to apply to the ruleset.
+          # List of override configurations to apply to the ruleset.
           dynamic "overrides" {
             for_each = action_parameters.value.overrides != null ? [action_parameters.value.overrides] : []
 
@@ -288,7 +288,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          //List of parameters that configure the response given to end users.
+          # List of parameters that configure the response given to end users.
           dynamic "response" {
             for_each = action_parameters.value.response != null ? [action_parameters.value.response] : []
 
@@ -299,7 +299,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of serve stale parameters to apply to the request.
+          # List of serve stale parameters to apply to the request.
           dynamic "serve_stale" {
             for_each = action_parameters.value.serve_stale != null ? [action_parameters.value.serve_stale] : []
 
@@ -308,7 +308,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          //  List of properties to manange Server Name Indication.
+          # List of properties to manange Server Name Indication.
           dynamic "sni" {
             for_each = action_parameters.value.sni != null ? [action_parameters.value.sni] : []
 
@@ -317,7 +317,7 @@ resource "cloudflare_ruleset" "this" {
             }
           }
 
-          // List of URI properties to configure for the ruleset rule when performing URL rewrite transformations.
+          # List of URI properties to configure for the ruleset rule when performing URL rewrite transformations.
           dynamic "uri" {
             for_each = action_parameters.value.uri != null ? [action_parameters.value.uri] : []
 
@@ -346,7 +346,7 @@ resource "cloudflare_ruleset" "this" {
         }
       }
 
-      // The ability to write custom rules for a zone that check for exposed credentials according to your criteria for specific applications.
+      # The ability to write custom rules for a zone that check for exposed credentials according to your criteria for specific applications.
       dynamic "exposed_credential_check" {
         for_each = rules.value.logging != null ? [rules.value.logging] : []
 
@@ -356,7 +356,7 @@ resource "cloudflare_ruleset" "this" {
         }
       }
 
-      // List parameters to configure how the rule generates logs. Not applied to all the actions.
+      # List parameters to configure how the rule generates logs. Not applied to all the actions.
       dynamic "logging" {
         for_each = rules.value.logging != null ? [rules.value.logging] : []
 
@@ -365,7 +365,7 @@ resource "cloudflare_ruleset" "this" {
         }
       }
 
-      // Rate limiting rules allow you to define rate limits for requests matching an expression, and the action to perform when those rate limits are reached.
+      # Rate limiting rules allow you to define rate limits for requests matching an expression, and the action to perform when those rate limits are reached.
       dynamic "ratelimit" {
         for_each = rules.value.ratelimit != null ? [rules.value.ratelimit] : []
 
@@ -383,4 +383,3 @@ resource "cloudflare_ruleset" "this" {
     }
   }
 }
-

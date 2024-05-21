@@ -1,0 +1,24 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: release
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.RELEASE_BOT_PAT }}
+          # this is a built-in strategy in release-please, see "Action Inputs"
+          # for more options
+          releaseType: terraform-module
+          handleGHRelease: true

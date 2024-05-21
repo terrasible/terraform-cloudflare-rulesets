@@ -1,7 +1,3 @@
-provider "cloudflare" {
-  # api_key = "c36641790f1cf1c42e656dae46b4ec70ca7ae"
-  # email   = "bibek.roniyar@gmail.com"
-}
 
 
 terraform {
@@ -11,10 +7,11 @@ terraform {
       version = "~> 4.0"
     }
   }
+  required_version = ">= 1.8"
 }
 
 module "managed_waf" {
-  source = "/Users/vivekrauniyar/Desktop/scripts/terraform/example" # Update the path to your module
+  source = "../" # Update the path to your module
 
   # Pass required variables to the module
   zone_name    = "honestbank.com"
@@ -57,4 +54,3 @@ module "managed_waf" {
     }
   ]
 }
-
