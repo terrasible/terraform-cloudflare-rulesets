@@ -1,6 +1,5 @@
 provider "cloudflare" {}
 
-
 terraform {
   required_providers {
     cloudflare = {
@@ -8,5 +7,5 @@ terraform {
       version = "~> 4.0"
     }
   }
+  required_version = ">= 1.8"
 }
-
