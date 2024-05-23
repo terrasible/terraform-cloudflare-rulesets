@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00c907f2-ba2b-42d9-b4d2-33ab762b392e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/pr-title.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pr-title.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/pre-commit.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pre-commit.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e7b21501-92e5-4381-9230-268c05dc07da" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" url="file:///usr/local/opt/go/libexec" />
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.github/workflows/pr-title.yml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/.github/workflows/release.yml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/.pre-commit-config.yaml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/CODEOWNERS" root0="SKIP_INSPECTION" />
@@ -26,44 +19,9 @@
     <setting file="file://$PROJECT_DIR$/main.tf" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/variables.tf" root0="SKIP_INSPECTION" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2gmVVeeGrcGHNmtGfRePhm851IB" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "bibek/first-pr",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/vivekrauni/Desktop/terraform-cloudflare-ruleset",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+    "git-widget-placeholder": "bibek/first-pr"
   }
 }]]></component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VgoProject">
-    <settings-migrated>true</settings-migrated>
-  </component>
 </project>
