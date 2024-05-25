@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7b21501-92e5-4381-9230-268c05dc07da" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/pr-title.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pr-title.yml" afterDir="false" />
-    </list>
+    <list default="true" id="e7b21501-92e5-4381-9230-268c05dc07da" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
