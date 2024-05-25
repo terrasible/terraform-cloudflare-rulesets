@@ -16,7 +16,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_managed_waf"></a> [managed\_waf](#module\_managed\_waf) | ../ | n/a |
+| <a name="module_managed_waf"></a> [managed\_waf](#module\_managed\_waf) | ../.. | n/a |
 
 ## Resources
 

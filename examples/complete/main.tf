@@ -1,9 +1,9 @@
 module "managed_waf" {
-  source = "../" # Update the path to your module
+  source = "../.." # Update the path to your module
 
   # Pass required variables to the module
-  zone_name    = "honestbank.com"
-  ruleset_name = "your_ruleset_name"
+  zone_name    = "example.com"
+  ruleset_name = "example ruleset name"
   description  = "Your ruleset description"
   kind         = "zone"
   phase        = "http_request_firewall_custom"
