@@ -1,15 +1,3 @@
-
-
-terraform {
-  required_providers {
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "~> 4.0"
-    }
-  }
-  required_version = ">= 1.8"
-}
-
 module "managed_waf" {
   source = "../" # Update the path to your module
 
