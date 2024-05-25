@@ -218,4 +218,5 @@ variable "ruleset_name" {
 variable "zone_name" {
   description = "The name of the Cloudflare zone. This is required if kind is set to zone. Only one of zone_name or account_name can be set."
   type        = string
+  default     = null
 }
