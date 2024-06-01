@@ -1,5 +1,3 @@
-#provider "cloudflare" {}
-
 terraform {
   required_providers {
     cloudflare = {

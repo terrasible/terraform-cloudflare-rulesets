@@ -2,7 +2,7 @@ module "zone_level_managed_waf" {
   source = "../.." # Update the path to your module
 
   # Pass required variables to the module
-  zone_name    = "example.com"
+  zone_name    = "terrasible.com"
   ruleset_name = "managed WAF ruleset name"
   description  = "managed WAF ruleset description"
   kind         = "zone"
@@ -24,21 +24,16 @@ module "zone_level_managed_waf" {
         id = "efb7b8c949ac4650a09736fc376e9aee"
         overrides = {
           categories = {
-            category = "wordpress"
-            action   = "block"
-            enabled  = true
-          }
-
-          categories = {
-            category = "joomla"
-            action   = "block"
-            enabled  = true
-          }
+              category = "wordpress"
+              action   = "block"
+              enabled  = true
+            }
         }
       }
       expression  = "(http.host eq \"example.host.com\")"
       description = "overrides to only enable wordpress rules to block"
       enabled     = false
     }
-  ]
+    ]
 }
+

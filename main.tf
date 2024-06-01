@@ -24,7 +24,7 @@ resource "cloudflare_ruleset" "this" {
   phase       = var.phase
 
   dynamic "rules" {
-    for_each = var.rules != [] ? var.rules : []
+    for_each = length(var.rules) > 0 ? var.rules : []
 
     content {
       expression = lookup(rules.value, "expression")
@@ -45,7 +45,7 @@ resource "cloudflare_ruleset" "this" {
           cache                      = lookup(action_parameters.value, "cache", null)
           content                    = lookup(action_parameters.value, "content", null)
           content_type               = lookup(action_parameters.value, "content_type", null)
-          cookie_fields              = lookup(action_parameters.value, "cookie_fields", null)
+          cookie_fields               = lookup(action_parameters.value, "cookie_fields", null)
           disable_apps               = lookup(action_parameters.value, "disable_apps", null)
           disable_railgun            = lookup(action_parameters.value, "disable_railgun", null)
           disable_zaraz              = lookup(action_parameters.value, "disable_zaraz", null)
@@ -201,7 +201,7 @@ resource "cloudflare_ruleset" "this" {
             for_each = action_parameters.value.from_list != null ? [action_parameters.value.from_list] : []
 
             content {
-              key  = lookup(from_list.value, "value", null)
+              key  = lookup(from_list.value, "key", null)
               name = lookup(from_list.value, "name", null)
             }
 
@@ -278,11 +278,11 @@ resource "cloudflare_ruleset" "this" {
                 for_each = overrides.value.rules != null ? [overrides.value.rules] : []
 
                 content {
-                  action            = lookup(categories.value, "action", null)
-                  enabled           = lookup(categories.value, "enabled", null)
-                  id                = lookup(categories.value, "id", null)
-                  score_threshold   = lookup(categories.value, "score_threshold", null)
-                  sensitivity_level = lookup(categories.value, "sensitivity_level", null)
+                  action            = lookup(rules.value, "action", null)
+                  enabled           = lookup(rules.value, "enabled", null)
+                  id                = lookup(rules.value, "id", null)
+                  score_threshold   = lookup(rules.value, "score_threshold", null)
+                  sensitivity_level = lookup(rules.value, "sensitivity_level", null)
                 }
               }
             }
