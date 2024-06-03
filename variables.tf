@@ -210,44 +210,44 @@ variable "rules" {
   }))
   default = []
 
-  # Ensure we specify only the supported action values
-  # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset#action
-  #  validation {
-  #    condition     = alltrue([for rule in var.rules : contains(["block", "challenge", "execute", "js_challenge", "log", "log_custom_field", "managed_challenge", "redirect", "route", "set_config", "skip"], rule.action)])
-  #    error_message = "Only the following action elements are allowed: block, challenge, execute, js_challenge, log, managed_challenge, redirect, route, skip."
-  #  }
-  #
-  #  # Ensure we specify only allowed action_parameters.products values
-  #  # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset#products
-  #  validation {
-  #    condition     = alltrue([for rule in var.rules : try(alltrue([for product in rule.action_parameters.products : contains(["bic", "hot", "ratelimit", "securityLevel", "uablock", "waf", "zonelockdown"], product)]), true)])
-  #    error_message = "Only the following product elements are allowed: bic, hot, ratelimit, securityLevel, uablock, waf, zonelockdown."
-  #  }
-  #
-  #  # Ensure we specify logging with skip action
-  #  # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset#logging
-  #  validation {
-  #    condition     = alltrue([for rule in var.rules : rule.action != "skip" ? !can(rule.logging.enabled) : true])
-  #    error_message = "Logging element can be used with skip action."
-  #  }
-  #
-  #  # Ensure we specify only allowed action_parameters.from_value.status_code values
-  #  validation {
-  #    condition     = alltrue([for rule in var.rules : try(contains([301, 302, 303, 307, 308], rule.action_parameters.from_value.status_code), true)])
-  #    error_message = "Only the following status_code elements are allowed: 301, 302, 303, 307, 308."
-  #  }
-  #
-  #  # Ensure action_parameters.from_value.target_url.value is not empty
-  #  validation {
-  #    condition     = alltrue([for rule in var.rules : try(length(rule.action_parameters.from_value.target_url.value) > 0, true)])
-  #    error_message = "action_parameters.from_value.target_url.value cannot be empty"
-  #  }
-  #
-  #  # Ensure we specify only allowed action_parameters.polish
-  #  validation {
-  #    condition     = alltrue([for rule in var.rules : try(contains(["off", "lossless", "lossy"], rule.action_parameters.polish), true)])
-  #    error_message = "Only the following polish elements are allowed off, lossless, lossy"
-  #  }
+  #Ensure we specify only the supported action values
+  #https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset#action
+  validation {
+    condition     = alltrue([for rule in var.rules : contains(["block", "challenge", "execute", "js_challenge", "log", "log_custom_field", "managed_challenge", "redirect", "rewrite", "route", "set_config", "skip"], rule.action)])
+    error_message = "Only the following action elements are allowed: block, challenge, execute, js_challenge, log, managed_challenge, redirect, route, skip."
+  }
+
+  # Ensure we specify only allowed action_parameters.products values
+  # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset#products
+  validation {
+    condition     = alltrue([for rule in var.rules : try(alltrue([for product in rule.action_parameters.products : contains(["bic", "hot", "ratelimit", "securityLevel", "uablock", "waf", "zonelockdown"], product)]), true)])
+    error_message = "Only the following product elements are allowed: bic, hot, ratelimit, securityLevel, uablock, waf, zonelockdown."
+  }
+
+  # Ensure we specify logging with skip action
+  # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset#logging
+  validation {
+    condition     = alltrue([for rule in var.rules : rule.action != "skip" ? !can(rule.logging.enabled) : true])
+    error_message = "Logging element can be used with skip action."
+  }
+
+  # Ensure we specify only allowed action_parameters.from_value.status_code values
+  validation {
+    condition     = alltrue([for rule in var.rules : try(contains([301, 302, 303, 307, 308], rule.action_parameters.from_value.status_code), true)])
+    error_message = "Only the following status_code elements are allowed: 301, 302, 303, 307, 308."
+  }
+
+  # Ensure action_parameters.from_value.target_url.value is not empty
+  validation {
+    condition     = alltrue([for rule in var.rules : try(length(rule.action_parameters.from_value.target_url.value) > 0, true)])
+    error_message = "action_parameters.from_value.target_url.value cannot be empty"
+  }
+
+  # Ensure we specify only allowed action_parameters.polish
+  validation {
+    condition     = alltrue([for rule in var.rules : try(contains(["off", "lossless", "lossy"], rule.action_parameters.polish), true)])
+    error_message = "Only the following polish elements are allowed off, lossless, lossy"
+  }
 }
 
 variable "ruleset_name" {
