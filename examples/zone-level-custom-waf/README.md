@@ -14,7 +14,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_zone_level_managed_waf"></a> [zone\_level\_managed\_waf](#module\_zone\_level\_managed\_waf) | ../.. | n/a |
+| <a name="module_http_request_firewall_custom"></a> [http\_request\_firewall\_custom](#module\_http\_request\_firewall\_custom) | ../.. | n/a |
 
 ## Resources
 
@@ -28,5 +28,5 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_rules"></a> [rules](#output\_rules) | Cloudflare Zone DNS Records |
+| <a name="output_rules"></a> [rules](#output\_rules) | Cloudflare rulset engine rules |
 <!-- END_TF_DOCS -->

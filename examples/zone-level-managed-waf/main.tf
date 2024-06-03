@@ -19,21 +19,27 @@ module "zone_level_managed_waf" {
       enabled     = true
     },
     {
-      action = "execute"
+      action      = "execute"
+      expression  = "(http.host eq \"example.host.com\")"
+      description = "overrides to only enable wordpress rules to block"
+      enabled     = false
       action_parameters = {
         id = "efb7b8c949ac4650a09736fc376e9aee"
         overrides = {
-          categories = {
+          categories = [
+            {
+              category = "wordpress"
+              action   = "block"
+              enabled  = true
+            },
+            {
               category = "wordpress"
               action   = "block"
               enabled  = true
             }
+          ]
         }
       }
-      expression  = "(http.host eq \"example.host.com\")"
-      description = "overrides to only enable wordpress rules to block"
-      enabled     = false
     }
-    ]
+  ]
 }
-
