@@ -1,6 +1,10 @@
 # examples
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+README.md updated successfully
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -16,7 +20,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_managed_waf"></a> [managed\_waf](#module\_managed\_waf) | ../.. | n/a |
+| <a name="module_zone_level_request_transform"></a> [zone\_level\_request\_transform](#module\_zone\_level\_request\_transform) | ../.. | n/a |
 
 ## Resources
 
@@ -28,5 +32,7 @@ No inputs.
 
 ## Outputs
 
-No outputs.
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| Name | Description |
+|------|-------------|
+| <a name="output_rules"></a> [rules](#output\_rules) | Cloudflare Zone DNS Records |
+<!-- END_TF_DOCS -->

@@ -1,0 +1,4 @@
+output:
+  file: README.md
+  mode: inject
+formatter: "markdown"
