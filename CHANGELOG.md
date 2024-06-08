@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.0](https://github.com/terrasible/terraform-cloudflare-rulesets/compare/v0.2.0...v0.3.0) (2024-06-08)
+
+
+### Features
+
+* add validation in the rules variable ([2050480](https://github.com/terrasible/terraform-cloudflare-rulesets/commit/205048023995268e792ab66883f1570e98c74729))
+* additional examples and refector code to improve readability ([7a41afc](https://github.com/terrasible/terraform-cloudflare-rulesets/commit/7a41afc0da73e8b693e9a68fc55a8da2fc54c9e5))
+* refactor and simplify code add more examples ([bce084b](https://github.com/terrasible/terraform-cloudflare-rulesets/commit/bce084b99a4db7bb4d77ff10116e327771db06b0))
+
 ## [0.2.0](https://github.com/bibek469/terraform-cloudflare-ruleset/compare/v0.1.0...v0.2.0) (2024-05-25)
 
 
