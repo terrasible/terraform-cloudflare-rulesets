@@ -4,7 +4,7 @@
 repos:
 repos:
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.90.0
+    rev: v1.91.0
     hooks:
       - id: terraform_fmt
       - id: terraform_tflint
@@ -20,7 +20,7 @@ repos:
         args:
           - --args=--format=json
           - --args=--skip-dirs="**/.terraform"
-      #- id : terraform_checkov
+      - id : terraform_checkov
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
@@ -30,6 +30,6 @@ repos:
 
   # Security analysis to prevent sensitive data leakage
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.18.2
+    rev: v8.18.3
     hooks:
       - id: gitleaks
