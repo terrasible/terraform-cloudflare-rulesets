@@ -1,10 +1,46 @@
 # Cloudflare Ruleset Engine Terraform Module
-Terraform Modules for provisioning Cloudflare ruleset engine resources.
+ Cloudflare Rulesets Engine Terraform module simplifies the deployment and management of Cloudflare rulesets. It enables defining rulesets as code, ensuring consistency and ease of management across various environments. The module exposes all necessary attributes to configure rules for any Cloudflare product, whether at the account or zone level.
+
+## Key Features
+- **Simplified Zone Identification**: Pass the zone_name instead of zone_id; the module fetches the zone_id for you.
+- **Account-Level Configuration**: Supports configuring rulesets at the account level.
+- **Flexible Ruleset Creation**: Create and deploy multiple ruleset engines according to your needs.
+- **Ease of Use**: Requires only three variables:
+  - zone_name: The zone for which to create the ruleset.
+  - phase: The point in the request/response lifecycle where the ruleset will be applied.
+  - ruleset_name: Name of the ruleset.
+
+## Prerequisites
+
+1. **Install Terraform**: Ensure Terraform is installed on your system. This module has been tested with Terraform versions greater than 1.8.
+2. **Cloudflare Account**: Set up your Cloudflare account and generate API credentials.
 
 ## Usage
+See [examples](./examples) directory for more complex rules configurations.
 
-See [examples](./examples) directory for working examples to reference:
+### Example withot any rules defination
+```hcl
+terraform {
+  required_providers {
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 4.0"
+    }
+  }
+  required_version = ">= 1.8"
+}
 
+module "rulesets_example_zone-level-custom-waf" {
+  source       = "terrasible/rulesets/cloudflare"
+  version      = "0.3.0"
+  zone_name    = "terrasible.com"
+  ruleset_name = "my custom waf ruleset"
+  kind         = "zone"
+  phase        = "http_request_firewall_custom"
+}
+```
+
+### Example with rules defination
 ```hcl
 module "custom_waf_ruleset" {
   source = "../.." # Update the path to your module
