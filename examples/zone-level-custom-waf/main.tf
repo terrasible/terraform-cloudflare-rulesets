@@ -2,7 +2,7 @@ module "http_request_firewall_custom" {
   source = "../.." # Update the path to your module
 
   # Pass required variables to the module
-  account_name = "terrasible.com"
+  zone_name    = "terrasible.com"
   ruleset_name = "my custom waf ruleset"
   description  = "Block request from source IP and execute Cloudflare Managed Ruleset on my zone-level phase entry point ruleset"
   kind         = "zone"
@@ -18,13 +18,11 @@ module "http_request_firewall_custom" {
         response = [
           {
             content      = <<-EOT
-                                    <!DOCTYPE html>
+                <!DOCTYPE html>
                 <html lang="en">
                 <head>
                 <meta charset="UTF-8">
-
-
-                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Access Denied</title>
                 </head>
                 <body style="background-color: OrangeRed;">
@@ -36,30 +34,6 @@ module "http_request_firewall_custom" {
             status_code  = 403
           }
         ]
-      }
-    },
-    {
-      action      = "execute"
-      expression  = "(http.host eq \"example.host.com\")"
-      description = "Execute Cloudflare Managed Ruleset on my zone-level phase entry point ruleset"
-      enabled     = true
-      action_parameters = {
-        id = "efb7b8c949ac4650a09736fc376e9aee"
-        overrides = {
-          categories = [
-            {
-              category = "wordpress"
-              action   = "block"
-              enabled  = true
-            },
-            {
-              category = "joomla"
-              action   = "block"
-              enabled  = true
-            }
-          ]
-        }
-
       }
     }
   ]
