@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/terrasible/terraform-cloudflare-rulesets/compare/v0.3.0...v0.3.1) (2024-06-09)
+
+
+### Bug Fixes
+
+* bug fix ([93a2fd1](https://github.com/terrasible/terraform-cloudflare-rulesets/commit/93a2fd128a10b0f41eed7bb23988a9da4ec1e96c))
+
 ## [0.3.0](https://github.com/terrasible/terraform-cloudflare-rulesets/compare/v0.2.0...v0.3.0) (2024-06-08)
 
 
